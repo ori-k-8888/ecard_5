@@ -186,6 +186,9 @@ export default {
   metaInfo() {
     return {
       title: this.$page.ecard.name,
+      meta: [
+        { "description": this.$page.ecard.occupation }
+      ],
       bodyAttrs: {
         style: `background-image: url(https://res.cloudinary.com/djebet1qh/image/upload/v1590983580/ecard/${this.$page.ecard.images.bg});
                 background-size: cover;

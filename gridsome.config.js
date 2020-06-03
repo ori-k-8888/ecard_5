@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === "production")
 
 module.exports = {
   siteName: "eCard",
-  siteDescription: "אנשים עובדים",
+  // siteDescription: "אנשים עובדים",
   titleTemplate: `%s | eCard`,
   // icon: 'src/favicon.png',
   plugins: [
