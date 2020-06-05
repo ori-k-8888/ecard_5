@@ -6,7 +6,7 @@
         <!--Main Col-->
         <div
           id="profile"
-          class="w-full shadow-2xl bg-white opacity-75 mx-6"
+          class="w-full shadow-2xl bg-white opacity-75 mx-6 rounded-lg"
         >
           <div class="p-4 text-center">
             <!-- Image for mobile view-->
