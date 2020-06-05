@@ -4,10 +4,7 @@
     <div class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover">
       <div class="max-w-4xl flex items-center h-auto flex-wrap mx-auto my-32">
         <!--Main Col-->
-        <div
-          id="profile"
-          class="w-full shadow-2xl bg-white opacity-75 mx-6 rounded-lg"
-        >
+        <div id="profile" class="w-full shadow-2xl bg-white opacity-75 mx-6 rounded-lg">
           <div class="p-4 text-center">
             <!-- Image for mobile view-->
             <div
@@ -15,9 +12,7 @@
               :style="mobileImage"
             ></div>
 
-            <h1
-              class="text-3xl font-bold pt-8 flex justify-center"
-            >{{$page.ecard.name}}</h1>
+            <h1 class="text-3xl font-bold pt-8 flex justify-center">{{$page.ecard.name}}</h1>
 
             <div class="mx-auto w-4/5 pt-3 border-b-2 border-teal-500 opacity-25"></div>
             <p class="pt-4 text-base font-bold flex items-center justify-center">
@@ -32,9 +27,7 @@
                 />
               </svg>
             </p>
-            <p
-              class="pt-2 text-gray-600 text-xs flex items-center justify-center"
-            >
+            <p class="pt-2 text-gray-600 text-xs flex items-center justify-center">
               {{$page.ecard.location}}&nbsp;&nbsp;
               <svg
                 class="h-4 fill-current text-teal-700 pr-4"
@@ -46,16 +39,12 @@
                 />
               </svg>
             </p>
-            <div
-              class="mt-4 text-gray-800 text-xl flex items-center justify-center"
-            >
+            <div class="mt-4 text-gray-800 text-xl flex items-center justify-center">
               <p dir="rtl">{{$page.ecard.description}}</p>
             </div>
 
             <div class="pt-12 pb-8">
-              <p
-                class="pt-4 pb-1 text-base font-bold flex items-center justify-center"
-              >יצירת קשר</p>
+              <p class="pt-4 pb-1 text-base font-bold flex items-center justify-center">יצירת קשר</p>
               <div class="flex justify-center">
                 <button
                   class="bg-teal-700 hover:bg-teal-900 text-white font-bold py-2 px-4 rounded-full"
@@ -65,9 +54,7 @@
               </div>
             </div>
 
-            <div
-              class="mt-6 pb-16 w-4/5 mx-auto flex flex-wrap items-center justify-around"
-            >
+            <div class="mt-6 pb-16 w-4/5 mx-auto flex flex-wrap items-center justify-around">
               <a
                 class="link"
                 target="_blank"
@@ -160,6 +147,7 @@
 <page-query>
 query Ecard ($path: String){
   ecard: ecard (path: $path) {
+    path
     name
     occupation
     location
@@ -187,13 +175,31 @@ export default {
     return {
       title: this.$page.ecard.name,
       meta: [
-        { "description": this.$page.ecard.occupation }
+        {
+          key: "keywords",
+          property: "keywords",
+          content: `${this.$page.ecard.occupation}`
+        },
+        { key: "og:type", property: "og:type", content: "Business eCard" },
+        {
+          key: "og:title",
+          property: "og:title",
+          content: this.$page.ecard.name
+        },
+        {
+          key: "description",
+          name: "description",
+          content: this.$page.ecard.occupation
+        },
+        { key: "og:url", property: "og:url", content: this.$page.ecard.path },
+        { key:"og:image", property: "og:image", content: `https://res.cloudinary.com/djebet1qh/image/upload/ar_1:1,bo_0px_solid_rgb:fdfdfd,c_fill,g_auto,r_max,w_1000/v1590983580/ecard/${this.$page.ecard.images.mobile}` }
+        
       ],
       bodyAttrs: {
         style: `background-image: url(https://res.cloudinary.com/djebet1qh/image/upload/v1590983580/ecard/${this.$page.ecard.images.bg});
                 background-size: cover;
                 background-repeat: no-repeat;
-                background-position: center center;` 
+                background-position: center center;`
       }
     };
   },

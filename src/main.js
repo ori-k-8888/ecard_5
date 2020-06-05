@@ -14,9 +14,21 @@ export default function (Vue, { router, head, isClient }) {
   head.meta.push({
     "http-equiv": 'X-UA-Compatible',
     content: 'ie=edge'
-  })
+  });
   head.meta.push({
     name: 'viewport',
     content: 'width=device-width, initial-scale=1.0'
-  })
+  });
+
+  let copyRightNotice = `\u00a9 ReSpark, ${ new Date().getFullYear() }. All rights reserved`;
+
+  head.meta.push(
+    {
+      name: 'author',
+      content: 'ReSpark'
+    },
+    { name: 'copyright', content: copyRightNotice},
+    { key:"og:image", property: "og:image", content: 'https://geekiam.co.uk/assets/static/logo.png' },
+    { property: "og:site_name", content: 'respark-ecard.netlify.app' }
+    );
 }
