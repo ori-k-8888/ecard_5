@@ -28,6 +28,15 @@
               </svg>
             </p>
             <p class="pt-2 text-gray-600 text-xs flex items-center justify-center">
+             <button v-if="waze" @click="navigateWaze(waze)">
+                <svg 
+                  class="h-3 fill-current text-teal-700 pr-4"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M13.314 1.59c-.225.003-.45.013-.675.03-2.165.155-4.295.924-6.069 2.327-2.194 1.732-3.296 4.325-3.496 7.05h.002c-.093 1.22-.23 2.15-.469 2.63-.238.479-.42.638-1.24.639C.27 14.259-.4 15.612.266 16.482c1.248 1.657 2.902 2.705 4.72 3.364a2.198 2.198 0 00-.033.367 2.198 2.198 0 002.2 2.197 2.198 2.198 0 002.128-1.668c1.307.12 2.607.14 3.824.1.364-.012.73-.045 1.094-.092a2.198 2.198 0 002.127 1.66 2.198 2.198 0 002.2-2.197 2.198 2.198 0 00-.151-.797 12.155 12.155 0 002.303-1.549c2.094-1.807 3.511-4.399 3.302-7.404-.112-1.723-.761-3.298-1.748-4.608-2.143-2.86-5.53-4.309-8.918-4.265zm.366 1.54c.312.008.623.027.933.063 2.48.288 4.842 1.496 6.4 3.577v.001c.829 1.1 1.355 2.386 1.446 3.792v.003c.173 2.477-.965 4.583-2.777 6.147a10.66 10.66 0 01-2.375 1.535 2.198 2.198 0 00-.98-.234 2.198 2.198 0 00-1.934 1.158 9.894 9.894 0 01-1.338.146 27.323 27.323 0 01-3.971-.148 2.198 2.198 0 00-1.932-1.156 2.198 2.198 0 00-1.347.463c-1.626-.553-3.078-1.422-4.155-2.762 1.052-.096 1.916-.6 2.319-1.408.443-.889.53-1.947.625-3.198v-.002c.175-2.391 1.11-4.536 2.92-5.964h.002c1.77-1.402 3.978-2.061 6.164-2.012zm-3.157 4.638c-.688 0-1.252.579-1.252 1.298 0 .72.564 1.297 1.252 1.297.689 0 1.252-.577 1.252-1.297 0-.711-.563-1.298-1.252-1.298zm5.514 0c-.688 0-1.25.579-1.25 1.298-.008.72.554 1.297 1.25 1.297.688 0 1.252-.577 1.252-1.297 0-.711-.564-1.298-1.252-1.298zM9.641 11.78a.72.72 0 00-.588.32.692.692 0 00-.11.54c.345 1.783 2.175 3.129 4.264 3.129h.125c1.056-.032 2.026-.343 2.816-.922.767-.556 1.29-1.316 1.477-2.137a.746.746 0 00-.094-.547.69.69 0 00-.445-.32.714.714 0 00-.867.539c-.22.93-1.299 1.9-2.934 1.94-1.572.046-2.738-.986-2.926-1.956a.72.72 0 00-.718-.586z"
+                  />
+                </svg>
+             </button>
               {{$page.ecard.location}}&nbsp;&nbsp;
               <svg
                 class="h-4 fill-current text-teal-700 pr-4"
@@ -45,7 +54,19 @@
 
             <div class="pt-12 pb-8">
               <p class="pt-4 pb-1 text-base font-bold flex items-center justify-center">יצירת קשר</p>
-              <div class="flex justify-center">
+              <div class="flex flex-wrap items-center justify-center">
+                <button @click="sendWhatsappMessage(firstName)">
+                  <svg
+                    class="h-6 fill-current text-gray-600 hover:text-teal-700 mr-4"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                    />
+                  </svg>
+                </button>
+
                 <button
                   class="bg-teal-700 hover:bg-teal-900 text-white font-bold py-2 px-4 rounded-full"
                 >
@@ -132,13 +153,8 @@
                 </svg>
               </a>
             </div>
-
-            <!-- Use https://simpleicons.org/ to find the svg for your preferred product -->
           </div>
         </div>
-        <!--
-        <!--Img Col-->
-        <!-- Big profile image for side bar (desktop) -->
       </div>
     </div>
   </ecard-layout>
@@ -161,6 +177,7 @@ query Ecard ($path: String){
     twitter
     youtube
     instagram
+    waze
   }
 }
 </page-query>
@@ -192,8 +209,11 @@ export default {
           content: this.$page.ecard.occupation
         },
         { key: "og:url", property: "og:url", content: this.$page.ecard.path },
-        { key:"og:image", property: "og:image", content: `https://res.cloudinary.com/djebet1qh/image/upload/ar_1:1,bo_0px_solid_rgb:fdfdfd,c_fill,g_auto,r_max,w_1000/v1590983580/ecard/${this.$page.ecard.images.mobile}` }
-        
+        {
+          key: "og:image",
+          property: "og:image",
+          content: `https://res.cloudinary.com/djebet1qh/image/upload/ar_1:1,bo_0px_solid_rgb:fdfdfd,c_fill,g_auto,r_max,w_1000/v1590983580/ecard/${this.$page.ecard.images.mobile}`
+        }
       ],
       bodyAttrs: {
         style: `background-image: url(https://res.cloudinary.com/djebet1qh/image/upload/v1590983580/ecard/${this.$page.ecard.images.bg});
@@ -223,11 +243,27 @@ export default {
     },
     instagram() {
       return `${this.$page.ecard.instagram}`;
+    },
+    waze() {
+      return `${this.$page.ecard.waze}`;
+    },
+    firstName() {
+      return `${this.$page.ecard.name}`;
     }
   },
-  mounted() {
-    // console.log(this.$page.ecard.images.mobile)
-  }
+  methods: {
+    sendWhatsappMessage: firstName => {
+      const whatsappMsg = `Hi `.replace(/ /g, "%20");
+      console.log(whatsappMsg);
+      console.log(firstName);
+      // const target = `https://api.whatsapp.com/send?phone=972542265172&text=I%20love%20you`
+      // window.open(target);
+    },
+    navigateWaze: (wazeLink) => {
+       window.open(wazeLink);
+    }
+  },
+  mounted() {}
 };
 </script>
 
