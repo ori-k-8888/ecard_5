@@ -28,7 +28,7 @@ export default function (Vue, { router, head, isClient }) {
       content: 'ReSpark'
     },
     { name: 'copyright', content: copyRightNotice},
-    { key:"og:image", property: "og:image", content: 'https://geekiam.co.uk/assets/static/logo.png' },
+    // { key:"og:image", property: "og:image", content: 'https://geekiam.co.uk/assets/static/logo.png' },
     { property: "og:site_name", content: 'respark-ecard.netlify.app' }
     );
 }

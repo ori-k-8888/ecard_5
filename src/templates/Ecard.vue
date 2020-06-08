@@ -55,7 +55,7 @@
             <div class="pt-12 pb-8">
               <p class="pt-4 pb-1 text-base font-bold flex items-center justify-center">יצירת קשר</p>
               <div class="flex flex-wrap items-center justify-center">
-                <button @click="sendWhatsappMessage(firstName)">
+                <button v-if="$page.ecard.whatsapp.number" @click="sendWhatsappMessage($page.ecard.whatsapp)">
                   <svg
                     class="h-6 fill-current text-gray-600 hover:text-teal-700 mr-4"
                     viewBox="0 0 24 24"
@@ -178,6 +178,10 @@ query Ecard ($path: String){
     youtube
     instagram
     waze
+    whatsapp {
+      number
+      msg
+    }
   }
 }
 </page-query>
@@ -252,12 +256,13 @@ export default {
     }
   },
   methods: {
-    sendWhatsappMessage: firstName => {
-      const whatsappMsg = `Hi `.replace(/ /g, "%20");
-      console.log(whatsappMsg);
-      console.log(firstName);
-      // const target = `https://api.whatsapp.com/send?phone=972542265172&text=I%20love%20you`
-      // window.open(target);
+    sendWhatsappMessage: (whatsapp) => {
+      const whatsappMsg = whatsapp.msg.replace(/ /g, "%20");
+      const whatsappNumber = whatsapp.number;
+      //console.log(whatsappMsg);
+      const target = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMsg}`
+      //console.log(target);
+      window.open(target);
     },
     navigateWaze: (wazeLink) => {
        window.open(wazeLink);

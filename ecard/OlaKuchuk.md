@@ -12,4 +12,7 @@ twitter: ""
 youtube: ""
 instagram: ""
 waze: ""
+whatsapp:
+    number: "972546277007"
+    msg: "הי אולה, אשמח שנקבע תהליך אמון."
 ---
