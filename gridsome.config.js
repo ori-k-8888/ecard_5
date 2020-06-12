@@ -14,7 +14,7 @@ module.exports = {
   siteName: "eCard",
   // siteDescription: "אנשים עובדים",
   titleTemplate: `%s | eCard`,
-  // icon: 'src/favicon.png',
+  icon: 'src/resparcIcon.jpeg',//'src/favicon.png',
   plugins: [
     {
       use: "@gridsome/source-filesystem",
