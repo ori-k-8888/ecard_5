@@ -27,6 +27,9 @@ module.exports = {
       },
     },
   ],
+  templates: {
+     Ecard: '/ecard/:link/:lang'
+  },
   transformers: {
     remark: {
       // global remark options

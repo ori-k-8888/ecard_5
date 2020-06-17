@@ -62,7 +62,7 @@
             </div>
 
             <div class="pt-12 pb-8">
-              <p class="pt-4 pb-1 text-base font-bold flex items-center justify-center">יצירת קשר</p>
+              <p class="pt-4 pb-1 text-base font-bold flex items-center justify-center">{{$page.ecard.howtoconnect}}</p>
               <div class="flex flex-wrap items-center justify-center">
                 <button
                   class="flex items-center relative shadow bg-teal-700 hover:bg-teal-900 pt-2 pb-2 pl-4 pr-4 text-white rounded-full mr-2"
@@ -189,6 +189,7 @@ query Ecard ($path: String){
     occupation
     location
     description
+    howtoconnect
     mobile
     images {
       mobile
@@ -320,11 +321,11 @@ export default {
   left: 0;
   top: 0;
   background-color: white;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
 }
 
 #page-content {
-  transition: opacity 0.5s;
+  transition: opacity 0.25s;
 }
 #loading-text {
   display: block;
