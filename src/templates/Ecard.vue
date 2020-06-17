@@ -3,7 +3,7 @@
     <div
       class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover">
       <!--===============================================================================================-->
-      <div id="loading-wrapper" v-if="loading">
+      <div id="loading-wrapper"  class="opacity-100">
         <div id="loading-text">{{$page.ecard.company}}</div>
         <div id="loading-content"></div>
       </div>
@@ -65,11 +65,12 @@
               <p class="pt-4 pb-1 text-base font-bold flex items-center justify-center">יצירת קשר</p>
               <div class="flex flex-wrap items-center justify-center">
                 <button
+                  class="flex items-center relative shadow bg-teal-700 hover:bg-teal-900 pt-2 pb-2 pl-4 pr-4 text-white rounded-full mr-2"
                   v-if="$page.ecard.whatsapp.number"
                   @click="sendWhatsappMessage($page.ecard.whatsapp)"
                 >
                   <svg
-                    class="h-6 fill-current text-gray-600 hover:text-teal-700 mr-4"
+                    class="h-4 fill-current text-gray-100"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -79,11 +80,16 @@
                   </svg>
                 </button>
 
-                <button
-                  class="bg-teal-700 hover:bg-teal-900 text-white font-bold py-2 px-4 rounded-full"
-                >
-                  <a v-bind:href="mobileNumber">{{$page.ecard.mobile}}</a>
-                </button>
+                <a :href="mobileNumber">  
+                  <button
+                  class="flex items-center relative shadow bg-teal-700 hover:bg-teal-900 pt-2 pb-2 pl-4 pr-4 text-white rounded-full"
+                >   
+                    <svg 
+                      class="h-4 fill-current text-gray-100"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"><path d="M20 18.35V19a1 1 0 01-1 1h-2A17 17 0 010 3V1a1 1 0 011-1h4a1 1 0 011 1v4c0 .56-.31 1.31-.7 1.7L3.16 8.84c1.52 3.6 4.4 6.48 8 8l2.12-2.12c.4-.4 1.15-.71 1.7-.71H19a1 1 0 01.99 1v3.35z"/>
+                    </svg>
+                </button></a>
               </div>
             </div>
 
@@ -206,11 +212,6 @@ import EcardLayout from "../layouts/EcardLayout.vue";
 export default {
   components: {
     EcardLayout
-  },
-  data() {
-    return {
-      loading: true
-    };
   },
   metaInfo() {
     return {
