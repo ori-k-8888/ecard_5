@@ -12,6 +12,7 @@ if (process.env.NODE_ENV === "production")
 
 module.exports = {
   siteName: "eCard",
+  siteUrl: 'https://respark.netlify.app',
   // siteDescription: "אנשים עובדים",
   titleTemplate: `%s | eCard`,
   icon: 'src/favicon.png',
@@ -26,6 +27,18 @@ module.exports = {
         },
       },
     },
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        exclude: ['/ecards'],
+        config: {
+          '/ecard/*': {
+            changefreq: 'weekly',
+            priority: 0.5
+          }
+        }
+      }
+    }
   ],
   templates: {
      Ecard: '/ecard/:link/:lang'
